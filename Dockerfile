@@ -3,8 +3,8 @@ FROM golang:1.18
 RUN go env -w GOBIN=/go/bin
 
 WORKDIR /usr/src
-RUN git clone https://github.com/garbagemza/argos-test-finder.git
-RUN git clone https://github.com/garbagemza/argos-test-builder.git
+RUN git clone --depth 1 https://github.com/garbagemza/argos-test-finder.git
+RUN git clone --depth 1 https://github.com/garbagemza/argos-test-builder.git
 
 WORKDIR /usr/src/argos-test-finder
 RUN go build
