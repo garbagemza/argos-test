@@ -16,6 +16,5 @@ RUN go install
 
 WORKDIR /usr/src/sh
 
-COPY script.sh argos.sh
-RUN chmod +x argos.sh
-RUN export PATH="/usr/src/sh:$PATH"
+COPY script.sh argos-test.sh
+RUN chmod +x argos-test.sh
