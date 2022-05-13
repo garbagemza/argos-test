@@ -24,7 +24,7 @@ do_work() {
     echo "[AZ] Sleeping 2 seconds to get last container up."
     sleep 2s
 
-    bash liveness-probe.sh $1
+    bash liveness-probe.sh $1 $3
 
     echo "[AZ] removing scripts"
     rm down-container.sh
