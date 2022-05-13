@@ -4,7 +4,7 @@
 do_run() {
     echo
     echo "This is the down-container pipeline script."
-    echo "this will down all argos container."
+    echo "this will down $1 container."
     echo
     down_container $1
 }

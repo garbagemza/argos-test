@@ -24,8 +24,8 @@ do_install() {
     echo
 
     make_directories
-    download_pipeline
-    build_images $1
+    download_pipeline $2
+    build_images $1 $2
     clean_directories
 }
 
@@ -36,13 +36,13 @@ make_directories() {
 
 download_pipeline() {
     echo "[FN] downloading pipeline"
-    git clone --depth 1 https://github.com/garbagemza/argos-repository-cache-job.git argos/src/argos-repository-cache-job
+    git clone --depth 1 https://github.com/garbagemza/$1.git argos/src/$1
 }
 
 build_images() {
     echo "[FN] building image..."
     if is_linux && is_armv7; then
-        build_raspberry_images $1
+        build_raspberry_images $1 $2
     else
         echo "unknown platform for building image."
         exit 1
@@ -51,7 +51,7 @@ build_images() {
 
 build_raspberry_images() {
     echo "[FN] building raspberry pi image"
-    docker build -t $1 -f argos/src/argos-repository-cache-job/docker/raspberrypi3.dockerfile argos/src/argos-repository-cache-job
+    docker build -t $1 -f argos/src/$2/docker/raspberrypi3.dockerfile argos/src/$2
 }
 
 clean_directories() {
@@ -60,5 +60,6 @@ clean_directories() {
 }
 
 # $1 container_name
+# $2 repository_name
 # call everything at last line so avoid problems downloading file.
-do_install $1
+do_install $1 $2

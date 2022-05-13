@@ -15,7 +15,7 @@ do_work() {
     echo
 
     sh down-container.sh $1
-    sh install.sh $1
+    sh install.sh $1 $2
     sh up-container.sh $1
     sh prune-image.sh
 
@@ -33,13 +33,19 @@ do_work() {
 }
 
 check_params() {
-        if [ -z "$1" ]; then
-                echo "expected parameter 'container_name'."
-                exit 1
-        fi
+    if [ -z "$1" ]; then
+        echo "expected parameter 'container_name'."
+        exit 1
+    fi
+    if [ -z "$2" ]; then
+        echo "expected parameter 'repository_name'."
+        exit 1
+    fi
 }
 
-check_params $1
+# $1 container_name
+# $2 repository_name
+check_params $1 $2
 
 # left intentionally at the bottom
-do_work $1
+do_work $1 $2
