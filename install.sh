@@ -1,4 +1,5 @@
 #!/bin/bash
+
 is_linux() {
         case "$(uname -s)" in
         *linux* ) true ;;

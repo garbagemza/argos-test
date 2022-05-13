@@ -2,10 +2,6 @@
 
 ## Trigger installation of pipeline
 
-curl https://raw.githubusercontent.com/garbagemza/argos-test/main/install.sh -o install.sh
-sh install.sh
+curl https://raw.githubusercontent.com/garbagemza/argos-test/main/download.sh -o download.sh
+sh download.sh
 
-## Run
-
-curl https://raw.githubusercontent.com/garbagemza/argos-test/main/run.sh -o run.sh
-sh run.sh
