@@ -7,8 +7,21 @@ is_linux() {
         esac
 }
 
+is_armv7() {
+        case "$(uname -m)" in
+        *armv7* ) true ;;
+        * ) false ;;
+        esac
+}
+
+
 do_install() {
     echo "executing argos pipeline install script"
+    echo
+    echo "platform detected:     $(uname -s)"
+    echo "architecture detected: $(uname -m)"
+    echo
+
     make_directories
     download_pipeline
     build_images
@@ -27,14 +40,17 @@ download_pipeline() {
 
 build_images() {
     echo "building images..."
-    echo "building cache..."
-    #docker build -t argos-cache argos/src/argos-repository-cache-job
-    if is_linux; then
-        echo "running linux!"
+    if is_linux && is_armv7; then
+        build_raspberry_images
     else
-        echo "not running linux"
+        echo "no es raspberry pi"
+        exit 1
     fi
 }
 
+build_raspberry_images() {
+    echo "building raspberry pi images"
+    docker build -t argos-cache -f argos/src/argos-repository-cache-job/docker/raspberrypi3.dockerfile argos/src/argos-repository-cache-job
+}
 # call everything at last line so avoid problems downloading file.
 do_install
