@@ -3,15 +3,15 @@
 do_run() {
     echo
     echo "This is the liveness probe."
-    echo "this will test if service is up at port $1."
+    echo "this will test if $1 service is up at port $2."
     echo
-    liveness_probe $1
+    liveness_probe $1 $2
 }
 
 liveness_probe() {
-    echo "[FN] executing liveness probe for containers"
+    echo "[FN] executing liveness probe for container $1."
     echo
-    echo "checking argos-cache $(expect_health $1)"
+    echo "checking $1 $(expect_health $2)"
     echo
 }
 
@@ -28,6 +28,7 @@ expect_health() {
     fi
 }
 
-# $1 container_port
+# $1 container_name
+# $2 container_port
 # main function is called at the end to ensure the whole file is downloaded.
-do_run $1
+do_run $1 $2
