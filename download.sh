@@ -15,7 +15,7 @@ do_work() {
     echo
 
     sh down-container.sh $1
-    sh down-image.sh $1
+    #sh down-image.sh $1
     sh install.sh $1
     sh up.sh $1
     bash liveness-probe.sh $1
