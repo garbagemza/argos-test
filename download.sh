@@ -4,19 +4,22 @@ do_work() {
     echo "[AZ] downloading scripts"
     echo
 
+    curl https://raw.githubusercontent.com/garbagemza/argos-test/main/down-containers.sh -o down-containers.sh
+    curl https://raw.githubusercontent.com/garbagemza/argos-test/main/down-images.sh -o down-images.sh
     curl https://raw.githubusercontent.com/garbagemza/argos-test/main/install.sh -o install.sh
-    curl https://raw.githubusercontent.com/garbagemza/argos-test/main/down.sh -o down.sh
     curl https://raw.githubusercontent.com/garbagemza/argos-test/main/up.sh -o up.sh
 
     echo "[AZ] executing scripts"
     echo
 
-    sh down.sh
+    sh down-containers.sh
+    sh down-images.sh
     sh install.sh
     sh up.sh
 
     echo "[AZ] removing scripts"
-    rm down.sh
+    rm down-containers.sh
+    rm down-images.sh
     rm install.sh
     rm up.sh
 }
