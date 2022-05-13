@@ -56,7 +56,7 @@ build_raspberry_images() {
 
 clean_directories() {
     echo "[FN] cleaning directories"
-    rm -rf argos/src
+    rm -rf argos
 }
 # call everything at last line so avoid problems downloading file.
 do_install
