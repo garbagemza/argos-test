@@ -7,9 +7,6 @@ do_run() {
     echo "this will up all argos containers."
     echo
     up_containers
-
-    echo "Sleeping 5 seconds to get last container up."
-    sleep 5s
 }
 
 up_containers() {
