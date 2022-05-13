@@ -8,7 +8,7 @@ do_work() {
     curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/down-container.sh -o down-container.sh
     curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/prune-image.sh -o prune-image.sh
     curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/install.sh -o install.sh
-    curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/up.sh -o up.sh
+    curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/up-container.sh -o up-container.sh
     curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/liveness-probe.sh -o liveness-probe.sh
 
     echo "[AZ] executing scripts"
@@ -16,7 +16,7 @@ do_work() {
 
     sh down-container.sh $1
     sh install.sh $1
-    sh up.sh $1
+    sh up-container.sh $1
     sh prune-image.sh
 
     echo "[AZ] Sleeping 2 seconds to get last container up."
