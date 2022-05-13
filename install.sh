@@ -51,7 +51,7 @@ build_images() {
 
 build_raspberry_images() {
     echo "[FN] building raspberry pi image"
-    docker build --no-cache -t $1 -f argos/src/argos-repository-cache-job/docker/raspberrypi3.dockerfile argos/src/argos-repository-cache-job
+    docker build -t $1 -f argos/src/argos-repository-cache-job/docker/raspberrypi3.dockerfile argos/src/argos-repository-cache-job
 }
 
 clean_directories() {
