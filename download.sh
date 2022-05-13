@@ -38,4 +38,4 @@ check_params() {
 check_params $1
 
 # left intentionally at the bottom
-do_work
+do_work $1
