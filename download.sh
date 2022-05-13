@@ -5,11 +5,11 @@ do_work() {
     echo "[AZ] parameters:"
     echo "[AZ] container_name: $1"
 
-    curl https://raw.githubusercontent.com/garbagemza/argos-test/main/down-container.sh -o down-container.sh
-    curl https://raw.githubusercontent.com/garbagemza/argos-test/main/down-image.sh -o down-image.sh
-    curl https://raw.githubusercontent.com/garbagemza/argos-test/main/install.sh -o install.sh
-    curl https://raw.githubusercontent.com/garbagemza/argos-test/main/up.sh -o up.sh
-    curl https://raw.githubusercontent.com/garbagemza/argos-test/main/liveness-probe.sh -o liveness-probe.sh
+    curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/down-container.sh -o down-container.sh
+    curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/down-image.sh -o down-image.sh
+    curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/install.sh -o install.sh
+    curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/up.sh -o up.sh
+    curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/liveness-probe.sh -o liveness-probe.sh
 
     echo "[AZ] executing scripts"
     echo

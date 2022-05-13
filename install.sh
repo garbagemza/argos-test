@@ -40,18 +40,18 @@ download_pipeline() {
 }
 
 build_images() {
-    echo "[FN] building images..."
+    echo "[FN] building image..."
     if is_linux && is_armv7; then
         build_raspberry_images $1
     else
-        echo "unknown platform for building images."
+        echo "unknown platform for building image."
         exit 1
     fi
 }
 
 build_raspberry_images() {
-    echo "[FN] building raspberry pi images"
-    docker build --no-cache -t $1 -f argos/src/argos-repository-cache-job/docker/raspberrypi3.dockerfile argos/src/argos-repository-cache-job
+    echo "[FN] building raspberry pi image"
+    docker build -t $1 -f argos/src/argos-repository-cache-job/docker/raspberrypi3.dockerfile argos/src/argos-repository-cache-job
 }
 
 clean_directories() {
