@@ -3,14 +3,14 @@
 # TODO: this should be run by docker-compose
 do_run() {
     echo
-    echo "This is the down-containers pipeline script."
-    echo "this will down all argos containers."
+    echo "This is the down-container pipeline script."
+    echo "this will down all argos container."
     echo
-    down_containers $1
+    down_container $1
 }
 
-down_containers() {
-    echo "[FN] getting down docker containers"
+down_container() {
+    echo "[FN] getting down docker container"
     docker container stop $(docker container ls -q --filter name=$1)
 }
 
