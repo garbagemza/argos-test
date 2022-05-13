@@ -17,7 +17,7 @@ do_work() {
     sh down-images.sh
     sh install.sh
     sh up.sh
-    sh liveness-probe.sh
+    bash liveness-probe.sh
 
     echo "[AZ] removing scripts"
     rm down-containers.sh
