@@ -44,7 +44,7 @@ build_images() {
     if is_linux && is_armv7; then
         build_raspberry_images
     else
-        echo "no es raspberry pi"
+        echo "unknown platform for building images."
         exit 1
     fi
 }
