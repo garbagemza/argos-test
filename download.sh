@@ -28,7 +28,7 @@ do_work() {
     rm down-container.sh
     rm prune-image.sh
     rm install.sh
-    rm up.sh
+    rm up-container.sh
     rm liveness-probe.sh
 }
 
