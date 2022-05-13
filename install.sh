@@ -31,7 +31,6 @@ do_install() {
 
 make_directories() {
     echo "[FN] making working directories"
-    mkdir -p argos/data
     mkdir -p argos/src
 }
 

@@ -3,7 +3,7 @@
 # TODO: this should be run by docker-compose
 do_run() {
     echo
-    echo "This is the down pipeline script."
+    echo "This is the down-containers pipeline script."
     echo "this will down all argos containers."
     echo
     down_containers
