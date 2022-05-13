@@ -18,7 +18,7 @@ do_work() {
 
     sh down-container.sh $1
     sh install.sh $1 $2
-    sh up-container.sh $1
+    sh up-container.sh $1 $3
     sh prune-image.sh
 
     echo "[AZ] Sleeping 2 seconds to get last container up."
