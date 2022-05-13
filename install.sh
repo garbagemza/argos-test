@@ -1,6 +1,6 @@
 #!/bin/bash
 is_linux() {
-    case "$uname -s" in
+    case "$(uname -s)" in
     *linux* ) true ;;
     *Linux* ) true ;;
     * ) false;;
