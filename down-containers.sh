@@ -1,10 +1,12 @@
 #!/bin/bash
 # This script will down 0 .. n containers with name
+script_name=$0
+script_full_path=$(dirname "$0")
 
 do_work() {
     for name in "$@"
     do
-        sh ./down-container.sh "$name"
+        sh $script_full_path/down-container.sh "$name"
     done
 }
 

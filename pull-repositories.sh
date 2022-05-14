@@ -1,4 +1,5 @@
 #!/bin/bash
+script_full_path=$(dirname "$0")
 
 do_work() {
     make_directories
@@ -13,7 +14,7 @@ make_directories() {
 download_repositories() {
     for name in "$@"
     do
-        sh ./pull-repository.sh "$name" "argos/src"
+        sh $script_full_path/pull-repository.sh "$name" "argos/src"
     done
 
 }
