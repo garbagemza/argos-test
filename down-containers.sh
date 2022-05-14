@@ -1,6 +1,5 @@
 #!/bin/bash
 # This script will down 0 .. n containers with name
-script_name=$0
 script_full_path=$(dirname "$0")
 
 do_work() {
