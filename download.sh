@@ -3,9 +3,9 @@
 do_work() {
     echo "[AZ] downloading scripts"
     echo "[AZ] parameters:"
-    echo "[AZ] container_name:  $1"
-    echo "[AZ] repository_name: $2"
-    echo "[AZ] container_port:  $3"
+    echo "[AZ]   container_name:  $1"
+    echo "[AZ]   repository_name: $2"
+    echo "[AZ]   container_port:  $3"
 
     curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/down-container.sh -o down-container.sh
     curl -s https://raw.githubusercontent.com/garbagemza/argos-test/main/prune-image.sh -o prune-image.sh
