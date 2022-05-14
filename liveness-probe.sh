@@ -1,18 +1,7 @@
 #!/bin/bash
 
-do_run() {
-    echo
-    echo "This is the liveness probe."
-    echo "this will test if $1 service is up at port $2."
-    echo
-    liveness_probe $1 $2
-}
-
 liveness_probe() {
-    echo "[FN] executing liveness probe for container $1."
-    echo
-    echo "checking $1 $(expect_health $2)"
-    echo
+    echo "[FN] checking $1 at port $2 ... $(expect_health $2)"
 }
 
 check_health() {
@@ -28,7 +17,22 @@ expect_health() {
     fi
 }
 
+check_params() {
+    if [ -z "$1" ]; then
+        echo "expected parameter 'container_name'."
+        exit 1
+    fi
+    if [ -z "$2" ]; then
+        echo "expected parameter 'container_port'."
+        exit 1
+    fi
+}
+
+# $1 container_name
+# $2 container_port
+check_params $1 $2
+
 # $1 container_name
 # $2 container_port
 # main function is called at the end to ensure the whole file is downloaded.
-do_run $1 $2
+liveness_probe $1 $2
