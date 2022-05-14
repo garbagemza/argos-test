@@ -13,7 +13,7 @@ make_directories() {
 download_repositories() {
     for name in "$@"
     do
-        sh pull-repository.sh "$name" "argos/src"
+        sh ./pull-repository.sh "$name" "argos/src"
     done
 
 }

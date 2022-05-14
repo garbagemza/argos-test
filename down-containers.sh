@@ -4,7 +4,7 @@
 do_work() {
     for name in "$@"
     do
-        sh down-container.sh "$name"
+        sh ./down-container.sh "$name"
     done
 }
 
