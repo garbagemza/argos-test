@@ -13,7 +13,7 @@ check_params() {
 }
 
 port_param() {
-    if [ -z "$1"]; then
+    if [ -z "$1" ]; then
         echo ""
     else
         echo "-p $1"
