@@ -17,6 +17,7 @@ port_param() {
         echo ""
     else
         echo "-p $1"
+    fi
 }
 
 # $1 container_name
