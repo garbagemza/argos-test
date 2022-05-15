@@ -12,9 +12,9 @@ execute_all() {
     sh clean-repositories.sh
     sh prune-images.sh
 
-    sh up-container.sh argos-gateway 80
-    sh up-container.sh argos-cache 8080
-    sh up-container.sh argos-repo 8081
+    sh up-container.sh argos-gateway 80:8080
+    sh up-container.sh argos-cache
+    sh up-container.sh argos-repo
 
     sleep 5s
 
