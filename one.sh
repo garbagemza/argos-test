@@ -28,18 +28,12 @@ check_params() {
         echo "expected parameter 'repository_name'."
         exit 1
     fi
-    if [ -z "$3" ]; then
-        echo "expected parameter 'container_port'."
-        exit 1
-    fi
 }
 
 # $1 container_name
-# $1 repository_name
-# $2 container_port
+# $2 repository_name
+# $3 container_port (optional)
 check_params $1 $2 $3
 
 # intentionally at bottom
 execute_all $1 $2 $3
-
-
