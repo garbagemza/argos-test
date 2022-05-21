@@ -20,10 +20,7 @@ execute_all() {
 
     sleep 5s
 
-    bash liveness-probe.sh argos-repo 80
-    bash liveness-probe.sh argos-gateway 8080
-    bash liveness-probe.sh argos-cache 8080
-    bash liveness-probe.sh argos-repo 8080
+    bash liveness-probe.sh argos-bff 80
 
     echo "[AZ] *** done ***"
 }
