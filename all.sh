@@ -13,10 +13,10 @@ execute_all() {
     sh clean-repositories.sh
     sh prune-images.sh
 
+    sh up-container.sh argos-bff 80:8080
+    sh up-container.sh argos-gateway
     sh up-container.sh argos-cache
     sh up-container.sh argos-repo
-    sh up-container.sh argos-gateway
-    sh up-container.sh argos-bff 80:8080
 
     sleep 5s
 
