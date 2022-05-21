@@ -8,6 +8,14 @@ is_linux() {
         esac
 }
 
+is_mac() {
+    case "$(uname -s)" in
+    *darwin* ) true ;;
+    *Darwin* ) true ;;
+    * ) false;;
+    esac
+}
+
 is_armv7() {
         case "$(uname -m)" in
         *armv7* ) true ;;
@@ -15,11 +23,19 @@ is_armv7() {
         esac
 }
 
+is_arm64() {
+    case "$(uname -m)" in
+    *arm64* ) true ;;
+    * ) false;;
+    esac
+}
 
 build_image() {
     echo "[FN] building image..."
     if is_linux && is_armv7; then
         build_raspberrypi_image $1 $2
+    elif is_mac && is_arm64; then
+        build_mac_m1_image $1 $2
     else
         echo "unknown platform for building image."
         exit 1
@@ -27,8 +43,13 @@ build_image() {
 }
 
 build_raspberrypi_image() {
-    echo "[FN] building raspberry pi image"
+    echo "[FN] building $1 raspberry pi image from $2"
     docker build -t $1 -f argos/src/$2/docker/raspberrypi3.dockerfile argos/src/$2
+}
+
+build_mac_m1_image() {
+    echo "[FN] building $1 mac m1 image from $2"
+    docker build -t $1 -f argos/src/$2/docker/arm64v8.dockerfile argos/src/$2
 }
 
 check_params() {
