@@ -3,12 +3,13 @@
 execute_all() {
     echo "[AZ] *** install everything ***"
 
-    sh down-containers.sh argos-bff argos-gateway argos-cache argos-repo
-    sh pull-repositories.sh argos-bff argos-gateway argos-repository-cache-job argos-repository-downloader-job
+    sh down-containers.sh argos-bff argos-gateway argos-cache argos-repo argos-deploy
+    sh pull-repositories.sh argos-bff argos-gateway argos-repository-cache-job argos-repository-downloader-job argos-deployer-job
     sh build-image.sh argos-bff argos-bff
     sh build-image.sh argos-gateway argos-gateway
     sh build-image.sh argos-cache argos-repository-cache-job
     sh build-image.sh argos-repo argos-repository-downloader-job
+    sh build-image.sh argos-deploy argos-deployer-job
 
     sh clean-repositories.sh
     sh prune-images.sh
@@ -17,6 +18,7 @@ execute_all() {
     sh up-container.sh argos-gateway
     sh up-container.sh argos-cache
     sh up-container.sh argos-repo
+    sh up-container.sh argos-deploy
 
     sleep 5s
 
