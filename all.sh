@@ -18,7 +18,7 @@ execute_all() {
     sh up-container.sh argos-gateway
     sh up-container.sh argos-cache
     sh up-container.sh argos-repo
-    sh up-container.sh argos-deploy
+    sh up-container.sh argos-deploy $1
 
     sleep 5s
 
@@ -27,7 +27,16 @@ execute_all() {
     echo "[AZ] *** done ***"
 }
 
+check_params() {
+    if [ -z "$1" ]; then
+        echo "expected parameter 'host_path'."
+        exit 1
+    fi
+}
+# $1 container_name
+check_params $1
+
 # intentionally at bottom
-execute_all
+execute_all $1
 
 

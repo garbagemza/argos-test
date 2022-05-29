@@ -10,11 +10,11 @@ execute_all() {
     sh clean-repositories.sh
     sh prune-images.sh
 
-    sh up-container.sh $1 $3
+    sh up-container.sh $1 $3 $4
 
     sleep 5s
 
-    bash liveness-probe.sh $1 $3
+    bash liveness-probe.sh $1 $4
 
     echo "[AZ] *** done ***"
 }
@@ -32,8 +32,9 @@ check_params() {
 
 # $1 container_name
 # $2 repository_name
-# $3 container_port (optional)
-check_params $1 $2 $3
+# $3 host_path (optional)
+# $4 container_port (optional)
+check_params $1 $2 $3 $4
 
 # intentionally at bottom
-execute_all $1 $2 $3
+execute_all $1 $2 $3 $4
