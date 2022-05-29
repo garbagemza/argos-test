@@ -44,12 +44,12 @@ build_image() {
 
 build_raspberrypi_image() {
     echo "[FN] building $1 raspberry pi image from $2"
-    docker build -t $1 -f argos/src/$2/docker/raspberrypi3.dockerfile argos/src/$2
+    docker build --no-cache -t $1 -f argos/src/$2/docker/raspberrypi3.dockerfile argos/src/$2
 }
 
 build_mac_m1_image() {
     echo "[FN] building $1 mac m1 image from $2"
-    docker build -t $1 -f argos/src/$2/docker/arm64v8.dockerfile argos/src/$2
+    docker build --no-cache -t $1 -f argos/src/$2/docker/arm64v8.dockerfile argos/src/$2
 }
 
 check_params() {
