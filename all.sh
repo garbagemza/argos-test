@@ -17,7 +17,7 @@ execute_all() {
     sh up-container.sh argos-bff $1/argos-bff 80:8080
     sh up-container.sh argos-gateway $1/argos-gateway
     sh up-container.sh argos-cache $1/argos-cache
-    sh up-container.sh argos-repo $1/argos/repo
+    sh up-container.sh argos-repo $1/argos-repo
     sh up-container.sh argos-deploy $1/argos-deploy
 
     sleep 5s
