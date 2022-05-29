@@ -2,7 +2,7 @@
 
 up_container() {
     echo "[FN] getting up docker container $1 with port binding $2"
-    docker run --network argos-net --name $1 --rm $(port_param $2) -d -v /argos/data:/app/data --env PORT=8080 --env WORKDIR=/app/data $1
+    docker run --network argos-net --name $1 $(port_param $2) -d -v /argos/data:/app/data --env PORT=8080 --env WORKDIR=/app/data $1
 }
 
 check_params() {
